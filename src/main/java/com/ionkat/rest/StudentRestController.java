@@ -15,12 +15,8 @@ public class StudentRestController {
 
 	private List<Student> theStudents;
 	
-	
 	// define @PostConstruct to load the student data ... only once!
-
-//	@PostConstruct
 	 {
-	
 		this.theStudents = new ArrayList<>();
 		
 		this.theStudents.add(new Student("Poornima", "Patel"));
@@ -31,7 +27,6 @@ public class StudentRestController {
 	
 	
 	// define endpoint for "/students" - return list of students
-	
 	@GetMapping("/students")
 	public List<Student> getStudents() {
 			
@@ -39,13 +34,8 @@ public class StudentRestController {
 	}
 	
 	// define endpoint for "/students/{studentId}" - return student at index
-
 	@GetMapping("/students/{studentId}")
 	public Student getStudent(@PathVariable int studentId) {
-		
-		// just index into the list ... keep it simple for now
-		
-		// check the studentId against list size
 		
 		if ( (studentId >= theStudents.size()) || (studentId < 0) ) {			
 			throw new StudentNotFoundException("Student id not found - " + studentId);
